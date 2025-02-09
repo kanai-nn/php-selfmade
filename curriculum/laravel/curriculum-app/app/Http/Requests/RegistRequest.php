@@ -22,7 +22,7 @@ class RegistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required',
+            'user_id' => 'required|unique:members',
             'password' => 'required|confirmed',
             'password_confirmation' => 'required',
             'age' => 'required|',
@@ -36,6 +36,7 @@ class RegistRequest extends FormRequest
     public function messages()
     {
         return [
+            'user_id.unique' => 'このIDは既に存在します。',
             'user_id.required' => '必須入力です。',
             'password.required' => '必須入力です。',
             'password.confirmed'=>'パスワードが一致しません。',

@@ -15,6 +15,7 @@ class Member_new extends Model
         'user_id',
         'password',
         'role',
+        'age',
         'salon_area_id'
     ];
 

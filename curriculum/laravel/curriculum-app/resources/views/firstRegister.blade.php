@@ -24,7 +24,7 @@
 
       <div id="beauty-inputs">
         <div class="b-cycle-input first-regist-input" id="b-cycle-input">
-          <label for="beauty">スケジュールを管理したい美容項目と<br>美容周期を教えてください。</label><br>
+          <label for="beauty">スケジュールを管理したい美容項目と<br>美容周期を教えてください。 </label><br>
           @if($errors->has('beauty_items.*.name'))<span>{{ $errors->first('beauty_items.*.name') }}</span><br>@endif
           @if($errors->has('beauty_items.*.cycle'))<span>{{ $errors->first('beauty_items.*.cycle') }}</span><br>@endif
           <input id="name" type="text" name="beauty_items[0][name]" placeholder="美容項目" value="{{ old('beauty_items.0.name') }}">
@@ -33,7 +33,7 @@
           <input id="b_cycle" type="text" name="beauty_items[1][cycle]" placeholder="美容周期" value="{{ old('beauty_items.1.cycle') }}"><br>
         </div>
       </div>
-      <button type="submit" id="add-input">項目を追加</button><br><br>
+      <!-- <button type="submit" id="add-input">項目を追加</button><br><br> -->
       <button type="submit">次へ</button>
     </form>
   </div>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,42 @@ Route::get('/complete', [App\Http\Controllers\member_regist_Controller::class, '
 Route::post('/complete', [App\Http\Controllers\member_regist_Controller::class, 'getComplete'])->name('complete');
 
 Route::get('/main', [App\Http\Controllers\Maincontroller::class, 'getMain'])->name('main');
+Route::get('/calendar/user-periods', [App\Http\Controllers\CalendarController::class, 'getRecentPeriods']);
+
 
 Route::get('/firstRegist', [App\Http\Controllers\FirstRegistController::class, 'getRegister'])->name('firstRegist');
 Route::post('/firstRegist', [App\Http\Controllers\FirstRegistController::class, 'firstRegister'])->name('firstRegist');
 Route::get('/firstRegistComplete', [App\Http\Controllers\FirstRegistController::class, 'getComplete'])->name('firstRegistComplete');
+
+
+Route::get('/menstrualcorrect', [App\Http\Controllers\CorrectController::class, 'getform'])->name('menstrualcorrect');
+Route::post('/menstrualcorrect', [App\Http\Controllers\CorrectController::class, 'correct'])->name('menstrualcorrect');
+
+Route::get('/beautyCorrect', [App\Http\Controllers\BeautyCorrectController::class, 'getform'])->name('beautyCorrect');
+Route::post('/beautyCorrect', [App\Http\Controllers\BeautyCorrectController::class, 'add'])->name('beautyCorrect');
+Route::get('/beautyRemove', [App\Http\Controllers\BeautyRemoveController::class, 'getform'])->name('beautyGet');
+// Route::post('/beautyRemove', [App\Http\Controllers\BeautyRemoveController::class, 'remove'])->name('beautyRemove');
+Route::post('/beautyRemove/{id}', [App\Http\Controllers\BeautyRemoveController::class, 'remove'])->name('beautyRemovedone');
+
+use App\Http\Controllers\EventController;
+
+Route::get('/events', [EventController::class, 'getEvents']);
+Route::post('/events/store', [EventController::class, 'store']);
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+
+use App\Http\Controllers\BeautyUpdateController;
+
+Route::post('/beauty/update/{id}', [BeautyUpdateController::class, 'updateCycle'])->name('beauty.update');
+
+
+
+
+
+
+
+
+Route::get('/management', [App\Http\Controllers\ManagementController::class, 'getform'])->name('management');
+Route::post('/management/{id}', [App\Http\Controllers\ManagementController::class, 'userRemove'])->name('userRemove');
+
+Route::get('/managementAdd', [App\Http\Controllers\ManagementAddController::class, 'add'])->name('managementAdd');
+Route::post('/managementAdd', [App\Http\Controllers\ManagementAddController::class, 'managementAddUser'])->name('managementAddUser');
