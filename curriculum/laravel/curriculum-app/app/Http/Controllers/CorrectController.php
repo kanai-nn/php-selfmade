@@ -10,6 +10,9 @@ use App\Models\Menstrual;
 class CorrectController extends Controller
 {
     public function getform() {
+        if (!session()->has('member_id')) {
+            return redirect('/login');
+        }
         // dd(session('member_id'));
         return view('menstrualcorrection');
     }

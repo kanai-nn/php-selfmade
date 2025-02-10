@@ -9,6 +9,10 @@ use App\Models\BeautyService;
 class BeautyCorrectController extends Controller
 {
     public function getform() {
+
+        if (!session()->has('member_id')) {
+            return redirect('/login');
+        }
         return view ('BeautyCorrect');
     }
 

@@ -10,7 +10,9 @@ use App\Http\Requests\RegistRequest;
 
 class member_regist_Controller extends Controller
 {
+    
     public function getRegister() {
+
         $areas = SalonArea::all();
       
         return view('register', compact('areas'));

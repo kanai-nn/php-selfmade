@@ -11,6 +11,9 @@ use App\Http\Requests\FirstRegistRequest;
 class FirstRegistController extends Controller
 {
     public function getRegister() {
+        if (!session()->has('member_id')) {
+            return redirect('/login')->with('error', 'ログインが必要です');
+        }
         // dd(session('member_id'));
         return view ('firstRegister');
     }

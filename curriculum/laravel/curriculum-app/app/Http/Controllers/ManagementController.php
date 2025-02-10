@@ -11,6 +11,9 @@ use App\Models\Menstrual;
 class ManagementController extends Controller
 {
     public function getform() {
+        if (!session()->has('member_id')) {
+            return redirect('/login')->with('error', 'ログインが必要です');
+        }
         
         $members = Member_new::with('salonArea')->get();
 

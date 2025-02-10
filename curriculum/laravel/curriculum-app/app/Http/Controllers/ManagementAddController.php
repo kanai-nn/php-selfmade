@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 class ManagementAddController extends Controller
 {
     public function add() {
+        if (!session()->has('member_id')) {
+            return redirect('/login');
+        }
         return view('managementAdd');
     }
 

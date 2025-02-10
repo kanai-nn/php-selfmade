@@ -62,8 +62,56 @@
   </div>
 
 
-  <div class="bottom-container">
+  <!-- <div class="bottom-container">
+    <div class="salonInfoBox">
+      <h3>サロン名</h3>
+      <p>ACHFILO[アフィーロ]</p>
+      <h3>サロンタイプ</h3>
+      <p>ヘアーサロン</p>
+      <h3>サロン住所</h3>
+      <p>東京都渋谷区渋谷１丁目２２−３ ルアン渋谷ビル 1階</p>
+      <h3>サロン詳細</h3>
+      <p>多くの芸能人がリピートする人気店舗！通算20万人の施術実績の<br>髪質改善トリートメントがおススメ！</p>
+    </div>
+    <div class="salonInfoBox">
+      <h3>サロン名</h3>
+      <p>I-nails</p>
+      <h3>サロンタイプ</h3>
+      <p>ネイルサロン</p>
+      <h3>サロン住所</h3>
+      <p>東京都中央区銀座1-4-3</p>
+      <h3>サロン詳細</h3>
+      <p>【大人ニュアンスネイル】がテーマの人気サロン！</p>
+    </div>
+    <div class="salonInfoBox">
+      <h3>サロン名</h3>
+      <p>ESPERANZA</p>
+      <h3>サロンタイプ</h3>
+      <p>エステサロン</p>
+      <h3>サロン住所</h3>
+      <p>東京都新宿区3‐34‐12下菊ビル6階</p>
+      <h3>サロン詳細</h3>
+      <p>セサミオイルのみをたっぷり使った瘦身インドエステ<br>最新最上位機種ER45を利用したインディバが人気な店舗！</p>
+    </div>
+  </div> -->
 
+
+  <div class="bottom-container">
+    @foreach($salons as $salon)
+      <div class="salonInfoBox">
+        <h3>サロン名</h3>
+        <p>{{ $salon->name }}</p>
+
+        <h3>サロンタイプ</h3>
+        <p>{{ $salon->type }}</p>
+
+        <h3>サロン詳細</h3>
+        <p>{{ $salon->data }}</p>
+
+        <h3>サロン画像</h3>
+        <img src="{{ asset('storage/salon_images/' . basename($salon->img)) }}" alt="サロン画像" width="300">
+      </div>
+    @endforeach
   </div>
 
 </div>

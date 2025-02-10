@@ -70,3 +70,14 @@ Route::post('/management/{id}', [App\Http\Controllers\ManagementController::clas
 
 Route::get('/managementAdd', [App\Http\Controllers\ManagementAddController::class, 'add'])->name('managementAdd');
 Route::post('/managementAdd', [App\Http\Controllers\ManagementAddController::class, 'managementAddUser'])->name('managementAddUser');
+
+Route::get('/salonRegistShow', [App\Http\Controllers\SalonRegistController::class, 'salonRegistShow'])->name('salonRegistShow');
+Route::post('/salonRegistConfirm', [App\Http\Controllers\SalonRegistController::class, 'salonRegistConfirm'])->name('salonRegistConfirm');
+Route::post('/salonRegist', [App\Http\Controllers\SalonRegistController::class, 'salonRegist'])->name('salonRegist');
+Route::get('/salonRegistComplete', [App\Http\Controllers\SalonRegistController::class, 'salonRegistComplete'])->name('salonRegistComplete');
+
+Route::get('/salonInfo', [App\Http\Controllers\SalonRegistController::class, 'salonInfo'])->name('salonInfo');
+Route::post('/salonRemove/{id}', [App\Http\Controllers\SalonRegistController::class, 'salonRemove'])->name('salonRemove');
+
+Route::get('/salon/edit/{id}', [App\Http\Controllers\SalonRegistController::class, 'edit'])->name('salon.edit');
+Route::post('/salon/update/{id}', [App\Http\Controllers\SalonRegistController::class, 'update'])->name('salon.update');

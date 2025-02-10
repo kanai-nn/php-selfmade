@@ -15,7 +15,7 @@ class Salon extends Model
         'name',
         'area_id',
         'type',
-        'dara',
+        'data',
         'img',
     ];
 

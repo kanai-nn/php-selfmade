@@ -6,10 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Menstrual;
 use Carbon\Carbon;
 use App\Models\BeautyService;
+use App\Models\Salon;
 
 class Maincontroller extends Controller
 {
     public function getMain() {
+        if (!session()->has('member_id')) {
+            return redirect('/login')->with('error', 'ログインが必要です');
+        }
         // セッションのuser_idと一致するbeauty_serviceテーブルのuser_idを取得
         $userid = session('member_id');
         
@@ -38,10 +42,11 @@ class Maincontroller extends Controller
 
         }
 
+        $salons = Salon::all();
         $currentPhase = $this->determineCurrentPhase($userid);
         $comment = $this->getCommentForPhase($currentPhase);
        
-        return view('main', compact('calculatedCycles','comment'));
+        return view('main', compact('calculatedCycles','comment', 'salons'));
 
     }
 

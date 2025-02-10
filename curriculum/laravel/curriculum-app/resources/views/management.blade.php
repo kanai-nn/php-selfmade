@@ -36,6 +36,8 @@
       </tbody>
     </table>
 
+    <button style="margin-top: 30px;"><a href="{{ route('salonInfo') }}">サロン情報へ→</a></button>
+
   </div>
 
 

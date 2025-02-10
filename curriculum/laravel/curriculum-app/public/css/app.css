@@ -22,6 +22,9 @@ body {
   padding-bottom: 20px;
 }
 
+.content {
+  padding-bottom: 50px; 
+}
 .header {
   background-color: #fff;
   padding: 10px 5%;
@@ -40,14 +43,16 @@ body {
   margin-top: 24%;
 }
 
-.footer {
+footer {
+  width: 100%;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  background-color: #fff;
-  text-align: left;
-  box-shadow: 0 -5px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  text-align: center;
+  padding: 10px;
 }
+
+
 
 .footer p {
   text-align: right;
@@ -326,6 +331,18 @@ text-align: center;
   margin-bottom: 3%;
 }
 
+.bottom-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.salonInfoBox {
+  background-color: #e7afd03d;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px;
+}
 /* 月経修正画面 */
 
 
@@ -390,8 +407,44 @@ text-align: center;
 
 /* 管理画面 */
 .UserShowTable {
-  background-color: #ffffff;
-  border-radius: 10px;
   text-align: center;
   padding: 50px;
+}
+
+/* サロン登録画面 */
+.salonRegistCard {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #e7afd03d;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  padding: 30px;
+}
+
+.salonRegistCard h2 {
+  color: #30303dc8;
+  padding-top: 60px;
+  padding-bottom: 10px;
+}
+
+.salonRegistCard {
+  padding-bottom: 20px;
+}
+
+.salonRegistCard input {
+  width: 40%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.salonRegistCard select {
+  width: 40%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.salonRegistCard button {
+  background-color: #ffffff;
+  border-color: #3d3038c8;
 }
