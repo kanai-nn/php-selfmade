@@ -24,9 +24,11 @@
         </div>
 
         <label for="start_date">月経開始日はいつですか？</label><br><br>
+        @if($errors->has('start_date'))<sapn>{{ $errors->first('start_date') }}</span><br>@endif
         <input type="date" id="start_date" name="start_date"><br><br>
 
         <label for="m_cycle">月経周期は大体何日ですか？</label><br><br>
+        @if($errors->has('m_cycle'))<sapn>{{ $errors->first('m_cycle') }}</span><br>@endif
         <input type="text" id="m_cycle" name="m_cycle"><br><br><br><br>
         <button><a href="{{ route('main') }}">戻る→</a></button>
         <button type="submit">完了→</button>

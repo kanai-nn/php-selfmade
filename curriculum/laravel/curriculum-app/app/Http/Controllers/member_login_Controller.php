@@ -17,13 +17,27 @@ class member_login_Controller extends Controller
 
     public function login(Request $request) {
         // dd($request->all());
+
+        $request->validate([
+            'user_id' => 'required',
+            'password' => 'required',
+        ], [
+            'user_id.required' => 'ユーザーIDは必須です。',
+            'password.required' => 'パスワードは必須です。',
+        ]);
+
         $userId = $request->input('user_id');
         $password = $request->input('password');
 
         $member = Member_new::where('user_id', $userId)->first();
 
-     
-        if($member->role == 1) {
+        if (!$member || !Hash::check($password, $member->password)) {
+            // ユーザーが存在しないか、パスワードが一致しない場合のエラー
+            return redirect()->route('login')->withErrors([
+                'login_error' => 'ユーザーIDまたはパスワードが正しくありません。',
+            ]);
+        }
+        if($member && $member->role == 1) {
 
             if ($member && Hash::check($password, $member->password)) {
                 //セッションでログイン状態を保持 
@@ -38,7 +52,7 @@ class member_login_Controller extends Controller
                 }
             }
 
-        }else if($member->role == 0) {
+        }else if($member && $member->role == 0) {
             if ($member && Hash::check($password, $member->password)) {
                 //セッションでログイン状態を保持 
                 session(['member_id' => $member->user_id]);

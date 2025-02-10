@@ -23,6 +23,7 @@ class BeautyCorrectController extends Controller
         ],
         [
             'beauty_items.*.name.required' => '必須入力です。',
+            'beauty_items.*.cycle.required' => '必須入力です。',
             'beauty_items.*.cycle.numeric' => '半角数字で入力してください。',
         ]);
 

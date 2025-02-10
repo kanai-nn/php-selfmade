@@ -23,7 +23,15 @@ class SalonRegistController extends Controller
             'area' => 'required',
             'type' => 'required',
             'data' => 'required',
+        ],[
+            'file.required' => '必須入力です。',
+            'name.required' => '必須入力です。',
+            'area.required' => '必須入力です。',
+            'type.required'=>'必須入力です。',
+            'data.required' => '必須入力です。',
         ]);
+
+
 
         if ($request->hasFile('file')) {
             $image = $request->file('file');
@@ -60,6 +68,9 @@ class SalonRegistController extends Controller
     }
 
     public function salonInfo() {
+        if (!session()->has('member_id')) {
+            return redirect('/login');
+        }
         $salons = Salon::all();
         return view('salonInfo', compact('salons'));
     }
@@ -71,6 +82,9 @@ class SalonRegistController extends Controller
 
     public function edit($id)
     {
+        if (!session()->has('member_id')) {
+            return redirect('/login');
+        }
         $salon = Salon::findOrFail($id);
         return view('salonEdit', compact('salon'));
     }
@@ -80,9 +94,14 @@ class SalonRegistController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'area_id' => 'required|numeric',
-            'type' => 'required|max:255',
+            'area_id' => 'required',
+            'type' => 'required',
             'data' => 'required',
+        ],[
+            'name.required' => '必須入力です。',
+            'area_id.required' => '必須入力です。',
+            'type.required'=>'必須入力です。',
+            'data.required' => '必須入力です。',
         ]);
 
         $salon = Salon::findOrFail($id);
